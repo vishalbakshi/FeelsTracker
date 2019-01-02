@@ -1,7 +1,7 @@
 # Two Week Version
 
 1. What is the task that is impossible to do manually?
-    - Remember exactly what emotion you felt when over time
+   - Remember exactly what emotion you felt, and when you felt it, over time
 
 # Core Functionality
 
