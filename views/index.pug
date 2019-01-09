@@ -1,0 +1,14 @@
+html 
+  head 
+    body 
+      form(
+        action='/',
+        method='POST'
+      )
+      select(name='emotion')
+        each emotion in emotions
+          option=emotion
+      input(
+        type='submit',
+        value='Submit'
+      )
