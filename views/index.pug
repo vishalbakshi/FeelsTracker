@@ -1,6 +1,8 @@
 html 
   head 
-    body 
+    body
+      h1 Feels Tracker
+      h2 Which emotion are you feeling? 
       form(
         action='/',
         method='POST'
@@ -12,3 +14,11 @@ html
           type='submit',
           value='Submit'
         )
+      h3 Your Emotional History:
+      each index, val in userEmotions
+        ul 
+          li=val 
+          each date in index
+            ul 
+              li=date
+          

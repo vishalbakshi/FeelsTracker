@@ -49,13 +49,13 @@ let userEmotions = {};
 app
   .route("/")
   .get(function(req, res) {
-    res.render("index", { emotions: emotions });
+    res.render("index", { emotions: emotions, userEmotions: userEmotions });
   })
   .post(function(req, res) {
     // Parse form submitted emotion
     // Initialize current time Date()
     let newEmotion = req.body.emotion;
-    let emotionDate = new Date();
+    let emotionDate = new Date().toDateString();
 
     // Create or append emotionDate to given emotion
     if (!userEmotions[newEmotion]) {
@@ -66,6 +66,7 @@ app
 
     res.redirect("/");
   });
+
 app.listen(8080, function() {
   console.log("Listening on 8080");
 });
