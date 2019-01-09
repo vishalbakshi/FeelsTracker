@@ -52,7 +52,18 @@ app
     res.render("index", { emotions: emotions });
   })
   .post(function(req, res) {
-    console.log(req.body);
+    // Parse form submitted emotion
+    // Initialize current time Date()
+    let newEmotion = req.body.emotion;
+    let emotionDate = new Date();
+
+    // Create or append emotionDate to given emotion
+    if (!userEmotions[newEmotion]) {
+      userEmotions[newEmotion] = [emotionDate];
+    } else {
+      userEmotions[newEmotion].push(emotionDate);
+    }
+
     res.redirect("/");
   });
 app.listen(8080, function() {

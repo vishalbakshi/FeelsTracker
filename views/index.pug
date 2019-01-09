@@ -5,10 +5,10 @@ html
         action='/',
         method='POST'
       )
-      select(name='emotion')
-        each emotion in emotions
-          option=emotion
-      input(
-        type='submit',
-        value='Submit'
-      )
+        select(name='emotion')
+          each emotion in emotions
+            option=emotion
+        input(
+          type='submit',
+          value='Submit'
+        )

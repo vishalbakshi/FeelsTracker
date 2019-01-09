@@ -5,4 +5,4 @@
 
 # Core Functionality
 
-Users can record what emotion they are feeling at a given time
+Users can record what emotion they are feeling at a given time and then view those records later on
