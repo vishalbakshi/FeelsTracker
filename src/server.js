@@ -49,7 +49,7 @@ let userEmotions = {};
 app
   .route("/")
   .get(function(req, res) {
-    res.render("index", { emotions: emotions, userEmotions: userEmotions });
+    res.render("index2", { emotions: emotions, userEmotions: userEmotions });
   })
   .post(function(req, res) {
     // Parse form submitted emotion
