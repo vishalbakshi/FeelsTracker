@@ -15,3 +15,5 @@ Users can select an emotion based on the logic of the Plutchik's Wheel, record i
 ## Core Functionality
 
 Users can record what emotion they are feeling at a given time and then view those records later on
+
+<img src="20190108B.gif">
