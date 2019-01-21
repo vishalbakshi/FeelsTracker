@@ -6,6 +6,8 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.set("view engine", "pug");
+app.set("view options", { doctype: "html" });
+app.use(express.static('public'));
 
 // Emotions to be listed as options in select menu
 let emotions = [
@@ -49,7 +51,8 @@ let userEmotions = {};
 app
   .route("/")
   .get(function(req, res) {
-    res.render("index", { emotions: emotions, userEmotions: userEmotions });
+    //res.sendFile(path.join("/sandbox/views/index.html"));
+    res.render("index2", { emotions: emotions, userEmotions: userEmotions });
   })
   .post(function(req, res) {
     // Parse form submitted emotion
@@ -66,6 +69,8 @@ app
 
     res.redirect("/");
   });
+
+
 
 app.listen(8080, function() {
   console.log("Listening on 8080");
