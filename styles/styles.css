@@ -3,7 +3,7 @@
 }
 
 body {
-  background-color: black;
+  background-color: white;
 }
 
 h1,
@@ -20,6 +20,14 @@ h2 {
   fill: rgba(var(--petalColor), 0.6);
 }
 
+.petal.selected {
+  fill: rgba(249,181,0,0.6);
+}
+
+.petal.selected:hover {
+  fill: rgba(249,181,0,0.9);
+}
 .petal:hover {
   fill: rgba(var(--petalColor), 0.9);
 }
+
