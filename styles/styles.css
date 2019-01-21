@@ -1,0 +1,25 @@
+:root {
+  --petalColor: 0, 249, 237;
+}
+
+body {
+  background-color: black;
+}
+
+h1,
+h2 {
+  color: white;
+}
+
+#plutchiksWheel {
+  position: absolute;
+  top: 100px;
+}
+
+.petal {
+  fill: rgba(var(--petalColor), 0.6);
+}
+
+.petal:hover {
+  fill: rgba(var(--petalColor), 0.9);
+}
