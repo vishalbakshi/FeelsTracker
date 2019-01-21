@@ -3,7 +3,7 @@
 }
 
 body {
-  background-color: white;
+  background-color: black;
 }
 
 h1,
@@ -17,17 +17,45 @@ h2 {
 }
 
 .petal {
-  fill: rgba(var(--petalColor), 0.6);
-}
-
-.petal.selected {
-  fill: rgba(249,181,0,0.6);
-}
-
-.petal.selected:hover {
-  fill: rgba(249,181,0,0.9);
-}
-.petal:hover {
   fill: rgba(var(--petalColor), 0.9);
 }
 
+.petal.selected {
+  fill: rgba(var(--petalColor), 1);
+}
+
+
+.petal:hover {
+  fill: rgba(var(--petalColor), 1);
+}
+
+.subpetal{
+  display: none;
+}
+
+.subpetal.selected{
+  display: block;
+  fill: red;
+}
+
+.subpetal0_text,
+.subpetal1_text,
+.subpetal2_text,
+.subpetal3_text,
+.subpetal4_text,
+.subpetal5_text,
+.subpetal6_text,
+.subpetal7_text {
+  display: none;
+}
+
+.subpetal0_text.selected,
+.subpetal1_text.selected,
+.subpetal2_text.selected,
+.subpetal3_text.selected,
+.subpetal4_text.selected,
+.subpetal5_text.selected,
+.subpetal6_text.selected,
+.subpetal7_text.selected {
+  display: block;
+}

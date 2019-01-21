@@ -44,9 +44,26 @@ $(document).ready(function() {
       clicked = [...newClicked];
       clicked.push(0);   
       $(this).addClass("selected");
+      subpetalTriggers();
+
+      /*
+      if (clicked.includes(1)) {
+        $('#subpetal1').addClass("selected");
+      }
+
+      if (clicked.includes(7)) {
+        $('#subpetal0').addClass("selected");
+      }
+      */
     } else {
       $(this).removeClass('selected');
+      subpetalTriggers();
       clicked.splice(clicked.indexOf(0), 1);
+
+      /*
+      $('#subpetal1').removeClass("selected");
+      $('#subpetal0').removeClass("selected");
+      */
     }
   });
 
@@ -65,9 +82,25 @@ $(document).ready(function() {
       clicked = [...newClicked];
       clicked.push(1);
       $(this).addClass("selected");
+      subpetalTriggers();
+
+      /*
+      if (clicked.includes(0)) {
+        $('#subpetal1').addClass("selected");
+      }
+
+      if (clicked.includes(2)) {
+        $('#subpetal2').addClass("selected");
+      }
+      */
     } else {
       $(this).removeClass('selected');
+      subpetalTriggers();
       clicked.splice(clicked.indexOf(1), 1);
+      /*
+      $('#subpetal1').removeClass("selected");
+      $('#subpetal2').removeClass("selected");
+      */
     }
   });
 
@@ -87,9 +120,25 @@ $(document).ready(function() {
       clicked = [...newClicked];
       clicked.push(2);
       $(this).addClass("selected");
+      subpetalTriggers();
+
+      /*
+      if (clicked.includes(1)) {
+        $('#subpetal2').addClass("selected");
+      }
+
+      if (clicked.includes(3)) {
+        $('#subpetal3').addClass("selected");
+      }
+      */
     } else {
       $(this).removeClass('selected');
+      subpetalTriggers();
       clicked.splice(clicked.indexOf(2), 1);
+      /*
+      $('#subpetal2').removeClass("selected");
+      $('#subpetal3').removeClass("selected");
+      */
     };
   });
 
@@ -109,9 +158,26 @@ $(document).ready(function() {
       clicked = [...newClicked];
       clicked.push(3);
       $(this).addClass("selected");
+      subpetalTriggers();
+
+      /*
+      if (clicked.includes(2)) {
+        $('#subpetal3').addClass("selected");
+      }
+
+      if (clicked.includes(4)) {
+        $('#subpetal4').addClass("selected");
+      }
+      */
     } else {
       $(this).removeClass('selected');
+      subpetalTriggers();
       clicked.splice(clicked.indexOf(3), 1);
+
+      /*
+      $('#subpetal3').removeClass("selected");
+      $('#subpetal4').removeClass("selected");
+      */
     };
   });
 
@@ -130,9 +196,25 @@ $(document).ready(function() {
       clicked = [...newClicked];  
       clicked.push(4);
       $(this).addClass("selected");
+      subpetalTriggers();
+
+      /*
+      if (clicked.includes(3)) {
+        $('#subpetal4').addClass("selected");
+      }
+
+      if (clicked.includes(5)) {
+        $('#subpetal5').addClass("selected");
+      }
+      */
     } else {
       $(this).removeClass('selected');
+      subpetalTriggers();
       clicked.splice(clicked.indexOf(4), 1);
+      /*
+      $('#subpetal4').removeClass("selected");
+      $('#subpetal5').removeClass("selected");
+      */
     }
   });
 
@@ -151,9 +233,27 @@ $(document).ready(function() {
       clicked = [...newClicked];
       clicked.push(5);
       $(this).addClass("selected");
+      subpetalTriggers();
+      
+      /*
+      if (clicked.includes(4)) {
+        $('#subpetal5').addClass("selected");
+      }
+
+      if (clicked.includes(6)) {
+        $('#subpetal6').addClass("selected");
+      }
+      */
+
     } else {
       $(this).removeClass('selected');
+      subpetalTriggers();
       clicked.splice(clicked.indexOf(5), 1);
+
+      /*
+      $('#subpetal5').removeClass("selected");
+      $('#subpetal6').removeClass("selected");
+      */
     };
   });
 
@@ -171,9 +271,26 @@ $(document).ready(function() {
       clicked = [...newClicked];
       clicked.push(6);
       $(this).addClass("selected");
+      subpetalTriggers();
+
+      /*
+      if (clicked.includes(5)) {
+        $('#subpetal6').addClass("selected");
+      }
+
+      if (clicked.includes(7)) {
+        $('#subpetal7').addClass("selected");
+      }
+      */
+
     } else {
       $(this).removeClass('selected');
+      subpetalTriggers();
       clicked.splice(clicked.indexOf(6), 1);
+      /*
+      $('#subpetal6').removeClass("selected");
+      $('#subpetal7').removeClass("selected");
+      */
     };
   });
 
@@ -192,10 +309,82 @@ $(document).ready(function() {
       clicked = [...newClicked];
       clicked.push(7);
       $(this).addClass("selected");
+      subpetalTriggers();
+
+      /*
+      if (clicked.includes(6)) {
+        $('#subpetal7').addClass("selected");
+      }
+
+      if (clicked.includes(0)) {
+        $('#subpetal0').addClass("selected");
+      }
+      */
+
     } else {
       $(this).removeClass('selected');
+      subpetalTriggers();
       clicked.splice(clicked.indexOf(7), 1);
+      /*
+      $('#subpetal7').removeClass("selected");
+      $('#subpetal0').removeClass("selected");
+      */
     };
   });
 
+  function subpetalTriggers() {
+    if ($('#petal0').hasClass('selected') && $('#petal1').hasClass('selected')) {
+      $('#subpetal1').addClass('selected');
+      
+    } else {
+      $('#subpetal1').removeClass('selected');
+    };
+
+    if ($('#petal1').hasClass('selected') && $('#petal2').hasClass('selected')) {
+      $('#subpetal2').addClass('selected');
+    } else {
+      $('#subpetal2').removeClass('selected');
+    };
+
+    if ($('#petal2').hasClass('selected') && $('#petal3').hasClass('selected')) {
+      $('#subpetal3').addClass('selected');
+    } else {
+      $('#subpetal3').removeClass('selected');
+    };
+
+    if ($('#petal3').hasClass('selected') && $('#petal4').hasClass('selected')) {
+      $('#subpetal4').addClass('selected');
+    } else {
+      $('#subpetal4').removeClass('selected');
+    };
+
+    if ($('#petal4').hasClass('selected') && $('#petal5').hasClass('selected')) {
+      $('#subpetal5').addClass('selected');
+    } else {
+      $('#subpetal5').removeClass('selected');
+    };
+
+    if ($('#petal5').hasClass('selected') && $('#petal6').hasClass('selected')) {
+      $('#subpetal6').addClass('selected');
+    } else {
+      $('#subpetal6').removeClass('selected');
+    };
+
+    if ($('#petal6').hasClass('selected') && $('#petal7').hasClass('selected')) {
+      $('#subpetal7').addClass('selected');
+    } else {
+      $('#subpetal7').removeClass('selected');
+    };
+
+    if ($('#petal7').hasClass('selected') && $('#petal0').hasClass('selected')) {
+      $('#subpetal0').addClass('selected');
+      $('.subpetal0_text').addClass('selected');
+    } else {
+      $('#subpetal0').removeClass('selected');
+      $('.subpetal0_text').removeClass('selected');
+    };
+
+    
+  }
+  
 });
