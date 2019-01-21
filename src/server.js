@@ -7,6 +7,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.set("view engine", "pug");
 app.set("view options", { doctype: "html" });
+app.use(express.static('public'));
 
 // Emotions to be listed as options in select menu
 let emotions = [
@@ -68,6 +69,8 @@ app
 
     res.redirect("/");
   });
+
+
 
 app.listen(8080, function() {
   console.log("Listening on 8080");
