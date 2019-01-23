@@ -17,23 +17,22 @@ h2 {
 }
 
 .petal {
-  fill: rgba(var(--petalColor), 0.9);
+  fill: rgba(var(--petalColor), 0.4);
 }
 
 .petal.selected {
   fill: rgba(var(--petalColor), 1);
 }
 
-
 .petal:hover {
   fill: rgba(var(--petalColor), 1);
 }
 
-.subpetal{
+.subpetal {
   display: none;
 }
 
-.subpetal.selected{
+.subpetal.selected {
   display: block;
   fill: red;
 }
@@ -58,4 +57,8 @@ h2 {
 .subpetal6_text.selected,
 .subpetal7_text.selected {
   display: block;
+}
+
+text {
+  color: white;
 }
