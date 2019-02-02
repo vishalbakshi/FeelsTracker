@@ -45,15 +45,26 @@ QUnit.test("Only adjacent petals can stay selected togther", function(assert) {
       // get color of current petal in nested loop
       let nextPetalColor = $(this).css("fill");
 
-      let petalsHaveSameClasses =
-        currentPetalClasses.every(function(el) {
-          return nextPetalClasses.includes(el);
-        }) &&
-        nextPetalClasses.every(function(nextEl) {
-          return currentPetalClasses.includes(nextEl);
-        });
-      console.log(petalId, $(this).attr("id"), petalsHaveSameClasses);
+      let petalsHaveSameClasses = false;
 
+      currentPetalClasses.forEach(function(el) {
+        if (
+          !classesToIgnore.includes(el) &&
+          nextPetalClasses.indexOf(el) !== -1
+        ) {
+          petalsHaveSameClasses = true;
+          return;
+        }
+      });
+      //console.log(petalId, $(this).attr("id"), petalsHaveSameClasses);
+      /*
+      console.log(
+        petalId,
+        $(this).attr("id"),
+        currentPetalClasses,
+        nextPetalClasses
+      );
+      */
       if (petalsHaveSameClasses) {
         assert.equal(
           currentPetalColor,
@@ -66,6 +77,14 @@ QUnit.test("Only adjacent petals can stay selected togther", function(assert) {
           nextPetalColor,
           "false: " + petalId + "," + $(this).attr("id")
         );
+      }
+
+      if (currentPetalClasses.includes("selected")) {
+        $("#" + petalId).removeClass("selected");
+      }
+
+      if (nextPetalClasses.includes("selected")) {
+        $(this).removeClass("selected");
       }
     });
   });
