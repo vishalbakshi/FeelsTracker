@@ -7,7 +7,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.set("view engine", "pug");
 app.set("view options", { doctype: "html" });
-app.use(express.static('public'));
+app.use(express.static("public"));
+app.use(express.static("views"));
 
 // Emotions to be listed as options in select menu
 let emotions = [
@@ -70,8 +71,9 @@ app
     res.redirect("/");
   });
 
-
-
+app.route("/test").get(function(req, res) {
+  res.render("test", { emotions: emotions, userEmotions: userEmotions });
+});
 app.listen(8080, function() {
   console.log("Listening on 8080");
 });
