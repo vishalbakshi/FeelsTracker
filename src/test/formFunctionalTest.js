@@ -9,16 +9,15 @@ chai.use(chaiHttp);
 test("POST request responds with correct data", function(done) {
   chai
     .request("http://localhost:8080")
-    .post("/")
+    .post("/add")
     .type("form")
     .send({
-      emotion: "test_emotion"
+      emotions: ["test_emotion"]
     })
     .end(function(err, res) {
-      let emotionDate = new Date().toDateString();
       assert.equal(res.status, 200, "Response status should be 200");
-      assert.include(res.text, "test_emotion");
-      assert.include(res.text, emotionDate);
+      assert.equal(res.body.message, "Submitted emotion");
+      assert.equal(res.body.errors, "No errors");
       done();
     });
 });

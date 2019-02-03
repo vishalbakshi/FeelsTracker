@@ -3,7 +3,7 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const app = express();
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.set("view engine", "pug");
 app.set("view options", { doctype: "html" });
@@ -49,27 +49,29 @@ let emotions = [
 // { emotion: date }
 let userEmotions = {};
 
-app
-  .route("/")
-  .get(function(req, res) {
-    //res.sendFile(path.join("/sandbox/views/index.html"));
-    res.render("index2", { emotions: emotions, userEmotions: userEmotions });
-  })
-  .post(function(req, res) {
-    // Parse form submitted emotion
-    // Initialize current time Date()
-    let newEmotion = req.body.emotion;
-    let emotionDate = new Date().toDateString();
+app.route("/").get(function(req, res) {
+  //res.sendFile(path.join("/sandbox/views/index.html"));
+  res.render("index2", { emotions: emotions, userEmotions: userEmotions });
+});
 
-    // Create or append emotionDate to given emotion
-    if (!userEmotions[newEmotion]) {
-      userEmotions[newEmotion] = [emotionDate];
+app.route("/add").post(function(req, res) {
+  // Parse form submitted emotion
+  // Initialize current time Date()
+  console.log(req.body);
+  let newEmotions = req.body.emotions;
+  let emotionDate = new Date().toDateString();
+
+  // Create or append emotionDate to given emotion
+  newEmotions.forEach(function(emotion) {
+    if (!userEmotions[emotion]) {
+      userEmotions[emotion] = [emotionDate];
     } else {
-      userEmotions[newEmotion].push(emotionDate);
+      userEmotions[emotion].push(emotionDate);
     }
-
-    res.redirect("/");
   });
+
+  res.send({ message: "Submitted emotion", error: "No errors" });
+});
 
 app.route("/test").get(function(req, res) {
   res.render("test", { emotions: emotions, userEmotions: userEmotions });

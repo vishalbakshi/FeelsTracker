@@ -9,6 +9,8 @@ QUnit.test("Petal color changes when clicked", function(assert) {
       finalPetalColor,
       $(this).attr("id") + " color changes when clicked"
     );
+    // remove 'selected' class before next petal is clicked
+    $(this).trigger("click");
   });
 });
 
