@@ -9,7 +9,9 @@
    - Select an emotion from a dropdown with 32 options
 2. What is the next most annoying task to do manually?
    - Process and summarize a list of records
-  
+
+<img src="20190202C.gif">
+
 ## Core Functionality
 Users can select an emotion based on the logic of the Plutchik's Wheel, record it, and later view their emotional history both textually and visually
 
