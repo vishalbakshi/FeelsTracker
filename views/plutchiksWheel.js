@@ -393,6 +393,41 @@ $(document).ready(function() {
     }
   }
 
+  // change subpetal text to a deeper emotion
+  $("#subpetal0_plus").click(function textUpdate() {
+    let emotions = ["serenity", "joy", "ecstasy"];
+    let currentEmotionIndex = emotions.indexOf($("#subpetal0_text").text());
+    let nextEmotionIndex;
+    let nextEmotionText;
+
+    if (currentEmotionIndex < 2) {
+      nextEmotionIndex = currentEmotionIndex + 1;
+      nextEmotionText = emotions[nextEmotionIndex];
+    }
+
+    if (nextEmotionText) {
+      $("#subpetal0_text").text(nextEmotionText);
+    }
+  });
+
+  // change subpetal text to a shallower emotion
+  $("#subpetal0_minus").click(function textUpdate() {
+    let emotions = ["serenity", "joy", "ecstasy"];
+    let currentEmotionIndex = emotions.indexOf($("#subpetal0_text").text());
+    let nextEmotionIndex;
+    let nextEmotionText;
+
+    if (currentEmotionIndex > 0) {
+      nextEmotionIndex = currentEmotionIndex - 1;
+      nextEmotionText = emotions[nextEmotionIndex];
+    }
+
+    if (nextEmotionText) {
+      $("#subpetal0_text").text(nextEmotionText);
+    }
+  });
+
+  // send selected emotions to server
   $("#submitEmotion").click(function(e) {
     // prevent the default action of the form
     e.preventDefault();
@@ -413,6 +448,13 @@ $(document).ready(function() {
       emotionalPayload.push($("text[class=" + petalID + "]").attr("id"));
     });
 
+    let subpetalID = $(".subpetal.selected").attr("id");
+    let subpetalTextID = subpetalID + "_text";
+    let subpetalText = $("#" + subpetalTextID).text();
+
+    if (subpetalText) {
+      emotionalPayload.push(subpetalText);
+    }
     $.post("/add", { emotions: emotionalPayload })
       .done(function(data) {
         $(".response").text(data.message);

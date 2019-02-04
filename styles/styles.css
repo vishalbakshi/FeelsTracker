@@ -56,6 +56,7 @@ h2 {
 .subpetal6_text.selected,
 .subpetal7_text.selected {
   display: block;
+  text-align: center;
 }
 
 text {

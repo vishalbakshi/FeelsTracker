@@ -60,7 +60,7 @@ app.route("/add").post(function(req, res) {
 
   let newEmotions = req.body.emotions || [];
   let emotionDate = new Date().toDateString();
-
+  console.log(newEmotions);
   // Create or append emotionDate to given emotion
   newEmotions.forEach(function(emotion) {
     if (!userEmotions[emotion]) {

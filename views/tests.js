@@ -201,3 +201,63 @@ QUnit.test(
     $("#petal7").trigger("click");
   }
 );
+
+QUnit.test(
+  "User can cycle through depth of emotions in each subpetal",
+  function(assert) {
+    // subpetal0
+    $("#petal7").trigger("click");
+    $("#petal0").trigger("click");
+
+    assert.equal(
+      $("#subpetal0_text").text(),
+      "serenity",
+      "#subpetal0 displays `serenity` when #subpetal0 is first visible"
+    );
+
+    $("#subpetal0_plus").trigger("click");
+    assert.equal(
+      $("#subpetal0_text").text(),
+      "joy",
+      "#subpetal0 displays `joy` when #subpetal0_plus is clicked once"
+    );
+
+    $("#subpetal0_plus").trigger("click");
+    assert.equal(
+      $("#subpetal0_text").text(),
+      "ecstasy",
+      "#subpetal0 displays `ecstasy` when #subpetal0_plus is clicked twice"
+    );
+
+    $("#subpetal0_plus").trigger("click");
+    assert.equal(
+      $("#subpetal0_text").text(),
+      "ecstasy",
+      "#subpetal0 displays `ecstasy` when #subpetal0_plus is clicked thrice"
+    );
+
+    $("#subpetal0_minus").trigger("click");
+    assert.equal(
+      $("#subpetal0_text").text(),
+      "joy",
+      "#subpetal0 displays `joy` when #subpetal0_minus is clicked once after #subpetal0_plus is clicked thrice"
+    );
+
+    $("#subpetal0_minus").trigger("click");
+    assert.equal(
+      $("#subpetal0_text").text(),
+      "serenity",
+      "#subpetal0 displays `joy` when #subpetal0_minus is clicked twice after #subpetal0_plus is clicked thrice"
+    );
+
+    $("#subpetal0_minus").trigger("click");
+    assert.equal(
+      $("#subpetal0_text").text(),
+      "serenity",
+      "#subpetal0 displays `joy` when #subpetal0_minus is clicked thrice after #subpetal0_plus is clicked thrice"
+    );
+
+    $("#petal7").trigger("click");
+    $("#petal0").trigger("click");
+  }
+);
