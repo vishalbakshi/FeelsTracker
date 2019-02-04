@@ -1,3 +1,9 @@
+# Six Week Version
+1. What is impossible to do manually?
+   - Access the web app--time to deploy!
+2. What is the next most annoying task to do manually?
+   - Process and summarize a list of records
+
 # Four Week Version
 1. What is the next most annoying task to do manually?
    - Select an emotion from a dropdown with 32 options
