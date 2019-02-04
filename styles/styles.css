@@ -23,6 +23,10 @@ h2 {
   fill: rgba(var(--petalColor), 1);
 }
 
+.response {
+  color: white;
+}
+
 .subpetal {
   display: none;
 }

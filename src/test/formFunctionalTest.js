@@ -17,7 +17,7 @@ test("POST request responds with correct data", function(done) {
     .end(function(err, res) {
       assert.equal(res.status, 200, "Response status should be 200");
       assert.equal(res.body.message, "Submitted emotion");
-      assert.equal(res.body.errors, "No errors");
+      assert.equal(res.body.error, "No errors");
       done();
     });
 });

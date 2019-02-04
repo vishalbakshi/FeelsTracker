@@ -1,6 +1,16 @@
 // This file contains logic for creating clickable elements
 // that prepare the data which will be sent
 $(document).ready(function() {
+  var subpetalEmotions = {
+    subpetal0: ["serenity", "joy", "ecstasy"],
+    subpetal1: ["acceptance", "trust", "admiration"],
+    subpetal2: ["apprehension", "fear", "terror"],
+    subpetal3: ["distraction", "surprise", "amazement"],
+    subpetal4: ["pensiveness", "sadness", "grief"],
+    subpetal5: ["boredom", "disgust", "loathing"],
+    subpetal6: ["annoyance", "anger", "rage"],
+    subpetal7: ["interest", "anticipation", "vigilance"]
+  };
   var clicked = [];
 
   $("#petal0").click(function() {
@@ -383,10 +393,12 @@ $(document).ready(function() {
     }
   }
 
-  // Form submission
   $("#submitEmotion").click(function(e) {
     // prevent the default action of the form
     e.preventDefault();
+
+    // Clear the response message on the page
+    $(".response").text("");
 
     // when user clicks submit, page sends selected
     // emotion petal text to server
@@ -401,11 +413,13 @@ $(document).ready(function() {
       emotionalPayload.push($("text[class=" + petalID + "]").attr("id"));
     });
 
-    console.log(emotionalPayload);
-
-    $.post("/add", { emotions: emotionalPayload }).done(function(data) {
-      console.log(data);
-    });
+    $.post("/add", { emotions: emotionalPayload })
+      .done(function(data) {
+        $(".response").text(data.message);
+      })
+      .fail(function() {
+        console.log("error sending data to server");
+      });
     return false;
   });
 });

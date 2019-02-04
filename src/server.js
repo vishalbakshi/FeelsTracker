@@ -57,8 +57,8 @@ app.route("/").get(function(req, res) {
 app.route("/add").post(function(req, res) {
   // Parse form submitted emotion
   // Initialize current time Date()
-  console.log(req.body);
-  let newEmotions = req.body.emotions;
+
+  let newEmotions = req.body.emotions || [];
   let emotionDate = new Date().toDateString();
 
   // Create or append emotionDate to given emotion
