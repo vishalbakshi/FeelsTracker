@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 const app = express();
+const port = process.env.PORT || 8080;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -76,6 +77,7 @@ app.route("/add").post(function(req, res) {
 app.route("/test").get(function(req, res) {
   res.render("test", { emotions: emotions, userEmotions: userEmotions });
 });
-app.listen(8080, function() {
-  console.log("Listening on 8080");
+
+app.listen(port, function() {
+  console.log("Listening on " + port);
 });
