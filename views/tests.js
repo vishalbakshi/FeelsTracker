@@ -1,3 +1,6 @@
+// add this type of test runner
+// https://gist.github.com/gmarik/1305062
+
 // clicking on a petal changes its color
 QUnit.test("Petal color changes when clicked", function(assert) {
   $(".petal").each(function(idx, petal) {

@@ -1,14 +1,15 @@
-var chaiHttp = require("chai-http");
-var chai = require("chai");
-var assert = chai.assert;
-var Mocha = require("mocha");
-var mocha = new Mocha({ ui: "tdd" });
+const chaiHttp = require("chai-http");
+const chai = require("chai");
+const assert = chai.assert;
+const Mocha = require("mocha");
+const mocha = new Mocha({ ui: "tdd" });
+const port = process.env.PORT || 8080;
 
 chai.use(chaiHttp);
 
 test("POST request responds with correct data", function(done) {
   chai
-    .request("http://localhost:8080")
+    .request("http://localhost:" + port)
     .post("/add")
     .type("form")
     .send({
@@ -21,3 +22,17 @@ test("POST request responds with correct data", function(done) {
       done();
     });
 });
+
+test("QUnit tests run successfully", function(done) {
+  chai
+    .request("http://localhost:" + port)
+    .get("/test")
+    .end(function(err, res) {
+      assert.equal(res.status, 200, "Response status should be 200");
+      console.log(res);
+      done();
+    });
+});
+
+// look through this example
+// https://osric.com/chris/accidental-developer/2018/06/javascript-unit-tests-with-travisci-and-qunit/
